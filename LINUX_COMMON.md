@@ -1,4 +1,4 @@
-# Linux Cheatseet
+# Linux Cheat Sheet
 
 ### Add Line To File
 ```
