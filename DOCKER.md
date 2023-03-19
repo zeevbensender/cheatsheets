@@ -7,3 +7,7 @@
 ```$ docker login```  
 ```$ docker image push registry-host:5000/myadmin/rhel-httpd:latest``` - [Push Image](https://docs.docker.com/engine/reference/commandline/push/)
 
+## Concepts
+* Volume mounting - mounting a volume to the container
+* Bind mounting - mounting a host directory to the container
+
