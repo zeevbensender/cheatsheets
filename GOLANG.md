@@ -1,8 +1,13 @@
 # Golang Cheat Sheet
 
-## Common
+## The "go" command
+[Reference](https://pkg.go.dev/cmd/go)
 ### Initialize Module
     $ go mod init example/todo
+
+### Download and add dependencies to the go.mod file
+    $ go mod tidy
+
 
 
 ## Tests
