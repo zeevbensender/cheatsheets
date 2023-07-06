@@ -1,5 +1,11 @@
 # Linux Cheat Sheet
 
+## Output Redirect
+### Redirect both stdout and error to a file
+```
+$ unittest.sh > tests.log 2>&1
+```
+
 ### Add Line To File
 ```
 $ cat >> <file name>
@@ -11,7 +17,7 @@ to be added, then hit Ctrl+C
 #### Search ignore case
 ```
 $ less
--n
+-i
 /<pattern>
 ```
 
@@ -74,4 +80,12 @@ Useful options
 - -s - symbolic link
 ```
 $ ln -s /mnt/target /home/david/link
+```
+
+### Display or manipulate disk partition table
+(Find disk)
+Useful options
+- -l - display partitions
+```
+$ fdisk -l
 ```

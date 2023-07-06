@@ -38,3 +38,5 @@ $ netstat -plnt
 ### Utils
 [tcpdump](https://www.tcpdump.org/manpages/tcpdump.1.html)
 
+[dig - DNS lookup utility](https://linux.die.net/man/1/dig)
+
