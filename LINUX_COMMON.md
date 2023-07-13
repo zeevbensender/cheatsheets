@@ -81,11 +81,24 @@ Useful options
 ```
 $ ln -s /mnt/target /home/david/link
 ```
-
 ### Display or manipulate disk partition table
 (Find disk)
 Useful options
 - -l - display partitions
 ```
 $ fdisk -l
+```
+
+## System
+### Get Kernel Release
+```
+$ uname -r
+```
+### Get Architecture
+```
+$ uname -m
+```
+### Get CPU info
+```
+$ lscpu
 ```
