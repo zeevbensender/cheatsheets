@@ -11,3 +11,9 @@
 * Volume mounting - mounting a volume to the container
 * Bind mounting - mounting a host directory to the container
 
+# Commands
+## Run a container
+```$ docker run <image name>```
+### Run a container interactive
+```$ docker run --entrypoint /bin/bash -it <image name>```
+
