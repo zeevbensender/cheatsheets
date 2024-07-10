@@ -1,5 +1,5 @@
-#DOCKER GOOGLE DRIVE CLIENT#
-##Based on ```rclone```##
+# DOCKER GOOGLE DRIVE CLIENT
+## Based on ```rclone```
 Deploying a Google Drive client in a Docker container and mapping it to an external USB HDD for file synchronization is a fantastic way to manage your files efficiently. One of the most widely used tools for interacting with Google Drive is `rclone`. This step-by-step guide will walk you through setting up rclone in a Docker container and mapping your external USB HDD for synchronization.
 
 ### Prerequisites:
