@@ -15,5 +15,5 @@
 ## Run a container
 ```$ docker run <image name>```
 ### Run a container interactive
-```$ docker run --entrypoint /bin/bash -it <image name>```
+```$ docker run --entrypoint /bin/bash -it <container name>```
 
