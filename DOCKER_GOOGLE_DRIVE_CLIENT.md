@@ -121,3 +121,77 @@ This job runs every hour (`0 * * * *`).
 ### Conclusion
 
 You’ve now set up a Docker container with rclone connecting to Google Drive and mapped it to an external USB HDD for file synchronization. This setup allows for easy management of your Google Drive files directly from your local storage, providing a robust and scalable solution for file synchronization.
+
+## Using ```docker compose``` instead of ```docker run``` 
+### Step-by-Step Guide to Create Docker Compose File
+
+1. **Create Docker Compose File**
+
+Make sure you are inside your project directory (e.g., `rclone-docker`) and create a new file named `docker-compose.yml`:
+
+```yaml
+version: '3.8'
+
+services:
+  rclone-sync:
+    image: rclone-image
+    build: .
+    container_name: rclone-sync
+    devices:
+      - /dev/fuse:/dev/fuse
+    cap_add:
+      - SYS_ADMIN
+    security_opt:
+      - apparmor:unconfined
+    volumes:
+      - ./rclone:/root/.config/rclone
+      - /media/usb:/mnt/usb
+    command: ["rclone", "mount", "gdrive:", "/mnt/usb"]
+    restart: unless-stopped
+```
+
+2. **Build and Run with Docker Compose**
+
+Navigate to your project directory and use Docker Compose to build and run the service:
+
+```sh
+docker-compose up -d
+```
+
+### Explanation of docker-compose.yml
+
+- **version: '3.8'**: Specifies the Docker Compose file version.
+- **services**: Defines the services.
+  - **rclone-sync**: Name of the service.
+    - **image: rclone-image**: Specifies the name of the image.
+    - **build: .**: Specifies to build the Dockerfile in the current directory.
+    - **container_name: rclone-sync**: Names the container.
+    - **devices**: Adds the FUSE device.
+    - **cap_add**: Adds SYS_ADMIN capability.
+    - **security_opt**: Disables AppArmor for this container.
+    - **volumes**: Maps local files and directories to the container.
+      - `./rclone:/root/.config/rclone`: Mounts the configuration directory.
+      - `/media/usb:/mnt/usb`: Maps the USB mount.
+    - **command**: Overrides the default command to mount Google Drive to the USB mount point.
+    - **restart**: Ensures the container restarts unless explicitly stopped.
+
+### Step 3: Verify and Automate Synchronization
+
+Optionally, create the synchronization script `sync.sh`:
+
+```sh
+#!/bin/sh
+docker exec rclone-sync rclone sync gdrive:/ /mnt/usb
+```
+
+Make the script executable:
+```sh
+chmod +x sync.sh
+```
+
+Set up the cron job:
+```sh
+(crontab -l ; echo "0 * * * * /path/to/rclone-docker/sync.sh") | crontab -
+```
+
+This cron job will run every hour. Adjust the timing to fit your needs.
