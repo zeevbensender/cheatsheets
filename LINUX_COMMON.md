@@ -79,28 +79,47 @@ $ du -hcs /home/david/work/*
 Useful options
 - -s - symbolic link
 ```
-$ ln -s /mnt/target /home/david/link
+ln -s /mnt/target /home/david/link
 ```
 ### Display or manipulate disk partition table
 (Find disk)
 Useful options
 - -l - display partitions
 ```
-$ fdisk -l
+fdisk -l
 ```
 
 ## System
 ### Get Kernel Release
 ```
-$ uname -r
+uname -r
 ```
 ### Get Architecture
 ```
-$ uname -m
+uname -m
 ```
 ### Get CPU info
 ```
-$ lscpu
+lscpu
 ```
 ### XAuthority for remote desktop
 [.Xauthority file creation](https://superuser.com/questions/806637/xauth-not-creating-xauthority-file)
+
+### Alternatives management
+[Baeldung manual](https://www.baeldung.com/linux/update-alternatives-command)
+#### List alternatives
+```
+update-alternatives --get-selections
+```
+#### Create alternative for ```jetbrains```
+```
+sudo update-alternatives --install /usr/bin/jetbrains-toolbox-2.4.2.32922/jetbrains-toolbox jetbrains /usr/bin/jetbrains 100
+```
+#### Display alternative for ```jetbrains```
+```
+update-alternatives --display jetbrains
+```
+#### Delete alternative for ```jetbrains```
+```
+sudo update-alternatives --remove jetbrains /usr/bin/jetbrains
+```
