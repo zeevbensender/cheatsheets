@@ -104,7 +104,30 @@ lscpu
 ```
 ### XAuthority for remote desktop
 [.Xauthority file creation](https://superuser.com/questions/806637/xauth-not-creating-xauthority-file)
+```
+# Rename the existing .Xauthority file by running the following command
+mv .Xauthority old.Xauthority 
 
+# xauth with complain unless ~/.Xauthority exists
+touch ~/.Xauthority
+
+# only this one key is needed for X11 over SSH 
+xauth generate :0 . trusted 
+
+# generate our own key, xauth requires 128 bit hex encoding
+xauth add ${HOST}:0 . $(xxd -l 16 -p /dev/urandom)
+
+# To view a listing of the .Xauthority file, enter the following 
+xauth list
+```
+To Verify X11Forwarding parameter:
+```
+sudo cat /etc/ssh/sshd_config |grep -i X11Forwarding
+```
+You should see similar output as the following:
+```
+X11Forwarding yes
+```
 ### Alternatives management
 [Baeldung manual](https://www.baeldung.com/linux/update-alternatives-command)
 #### List alternatives
