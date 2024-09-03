@@ -11,3 +11,8 @@
 [Kubernetes](./K8S.md)
 
 [Go](./GOLANG.md)
+
+## Miscellaneous
+### Python
+#### Regex
+* Match a string that is not the pattern: ```((?!milvus-m-16-ef-20))```
