@@ -157,3 +157,23 @@ sudo update-alternatives --remove jetbrains /usr/bin/jetbrains
 # run the 'run.sh' script from subdirs having 'scripts' in their name
 ls | grep scripts | awk ' { print "cd " ENVIRON["PWD"] "/" $1 " && ../run.sh"} '
 ```
+### Binary file manipulation
+#### Print the file bytes 
+Use the ```xxd``` command
+```bash
+xxd -s 0 -c 4 -l 8 ~/work/binary_file
+00000000: 0000 3442  ..4B
+00000004: 0000 4842  ..HB
+```
+Options: ```-s``` for bytes to skip; ```-c``` for columns number (bytes in each row); ```-l``` for length (bytes to print)
+#### Copy bytes from one file to another
+Use the ```dd``` command to copy 4 bytes from the beginning of one file to another
+```bash
+dd if=/home/user/work/base.fvecs of=/home/user/work/base1.fvecs skip=0 bs=4 count=1
+```
+
+Use the ```dd``` command to copy 512 bytes from one file and append them to another
+```bash
+dd skip=4 bs=128 count=4 if=/home/user/work/base.fvecs >> /home/user/work/base1.fvecs
+```
+Options: ```if``` for input file; ```of``` for output file; ```skip``` for bytes to skip; ```bs``` bytes to copy in each iteration; ```count``` number of iterations
