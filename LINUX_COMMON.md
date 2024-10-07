@@ -176,4 +176,4 @@ Use the ```dd``` command to copy 512 bytes from one file and append them to anot
 ```bash
 dd skip=4 bs=128 count=4 if=/home/user/work/base.fvecs >> /home/user/work/base1.fvecs
 ```
-Options: ```if``` for input file; ```of``` for output file; ```skip``` for bytes to skip; ```bs``` bytes to copy in each iteration; ```count``` number of iterations
+Options: ```if``` for input file; ```of``` for output file; ```skip``` for bytes to skip; ```bs``` block size in bytes; ```count``` number of blocks to copy
