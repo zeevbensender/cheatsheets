@@ -49,4 +49,34 @@ docker info | grep -i proxy
 
 ```
 
+---
+# Remove all containers and images. Clean all.
+## Verify No Running Containers or Images
+### Stop and Remove All Containers
+```bash
+docker stop $(docker ps -aq)         # Stop all containers
+docker rm -v $(docker ps -aq)        # Remove all containers and associated volumes
+```
+### Remove All Images
+```bash
+docker rmi -f $(docker images -aq)   # Remove all images
+```
+## Prune All Unused Docker Data
+```bash
+docker system prune -af --volumes
+```
+## Manually Clean Data
+### Stop the Docker Service
+```bash
+sudo systemctl stop docker
+```
+### Delete the Overlay2 Contents
+```bash
+sudo rm -rf /var/lib/docker/overlay2/*
+```
+### Start the Docker service
+```bash
+sudo systemctl start docker
+```
+
 
