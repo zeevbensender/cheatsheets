@@ -90,6 +90,11 @@ Useful options
 fdisk -l
 ```
 
+Display Partition types
+```bash
+df -T
+```
+
 ## System
 ### Get Kernel Release
 ```bash
