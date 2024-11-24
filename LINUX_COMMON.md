@@ -113,6 +113,10 @@ lscpu
 ### XAuthority for remote desktop
 [.Xauthority file creation](https://superuser.com/questions/806637/xauth-not-creating-xauthority-file)
 ```bash
+# Ensure your Ubuntu machine has X11-related packages installed:
+sudo apt update
+sudo apt install -y openssh-server xauth x11-apps
+
 # Rename the existing .Xauthority file by running the following command
 mv .Xauthority old.Xauthority 
 
@@ -122,6 +126,12 @@ touch ~/.Xauthority
 # only this one key is needed for X11 over SSH 
 xauth generate :0 . trusted 
 
+# Verify that the DISPLAY variable is set by running
+echo $DISPLAY
+
+# If it's empty, manually set it
+export DISPLAY=localhost:10.0
+
 # generate our own key, xauth requires 128 bit hex encoding
 xauth add ${HOST}:0 . $(xxd -l 16 -p /dev/urandom)
 
@@ -130,12 +140,15 @@ xauth list
 ```
 To Verify X11Forwarding parameter:
 ```bash
-sudo cat /etc/ssh/sshd_config |grep -i X11Forwarding
+sudo cat /etc/ssh/sshd_config |grep -i X11
 ```
 You should see similar output as the following:
 ```bash
 X11Forwarding yes
+X11DisplayOffset 10
+X11UseLocalhost yes
 ```
+
 ### Alternatives management
 [Baeldung manual](https://www.baeldung.com/linux/update-alternatives-command)
 #### List alternatives
