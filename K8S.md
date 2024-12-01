@@ -2,15 +2,20 @@
 
 ## Commands
 
-* ### Compare deployed yaml file changes with deployed resources
+* ### Run test pod for various validations
+  ```bash
+  kubectl run test-pod --rm -it --image=busybox --restart=Never -- sh
   ```
-  $ kubectl diff -f <file name>.yaml
+
+* ### Compare deployed yaml file changes with deployed resources
+  ```bash
+  kubectl diff -f <file name>.yaml
   ```
 * ### Show resources list
-   ```
-   $ kubectl api-resources
+   ```bash
+  kubectl api-resources
    ```
 * ### Show resource properties
-  ```
-  $ kubectl explain <resource name> [--recursive]
+  ```bash
+  kubectl explain <resource name> [--recursive]
   ```
