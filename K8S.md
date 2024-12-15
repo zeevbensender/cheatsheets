@@ -19,3 +19,7 @@
   ```bash
   kubectl explain <resource name> [--recursive]
   ```
+* ### Show external IPs
+```bash
+kubectl get svc -A | awk ' { print $5 }' | grep -v none
+```
