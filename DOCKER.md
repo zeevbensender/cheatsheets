@@ -13,10 +13,22 @@
 
 # Commands
 ## Run a container
-```$ docker run <container name>```
+```bash
+docker run <container name>
+```
 ### Run a container interactive
-```$ docker run --entrypoint /bin/bash -it <container name>```
-
+``` bash
+docker run --entrypoint /bin/bash -it <container name>
+```
+### Show not running containers
+```bash
+docker ps -f "status=exited"
+```
+---
+## Find container log files on the host
+```bash
+sudo ls /var/lib/docker/containers/
+```
 ---
 # Configure docker proxy
 <br><i>The Docker service proxy is configured differently from the system environment proxy.</i><br>
