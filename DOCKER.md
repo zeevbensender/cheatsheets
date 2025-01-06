@@ -91,4 +91,15 @@ sudo rm -rf /var/lib/docker/overlay2/*
 sudo systemctl start docker
 ```
 
+# docker compose
+
+## Override CMD
+```
+services:
+  my-service:
+    image: my-image
+    entrypoint: "tail"
+    command: ["-f", "/dev/null"]
+```
+
 
