@@ -16,11 +16,14 @@
 ```bash
 docker run <container name>
 ```
-### Run a container interactive
+### Examples
+#### Run a container interactive
 ``` bash
 docker run --entrypoint /bin/bash -it <container name>
 ```
-### Show not running containers
+### Options
+```--privileged``` Gives the container elevated privileges, allowing it to access all devices and perform system-level operations on the host.
+## Show not running containers
 ```bash
 docker ps -f "status=exited"
 ```
