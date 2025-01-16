@@ -1,5 +1,9 @@
 # Kubernetes Cheat Sheet
-
+## kubectl
+Set the Node Configuration
+```bash
+export KUBECONFIG=PATH_TO_CONFIG_FILE/config
+```
 ## Commands
 
 * ### Run test pod for various validations
