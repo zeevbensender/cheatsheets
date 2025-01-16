@@ -42,6 +42,13 @@ Look up the Docker service proxy:
 ```bash
 docker info | grep -i proxy
 ```
+The proxy configuration file can be located also at ```/etc/systemd/system/docker.service.d/http_proxy.conf```:
+```conf
+[Service]
+Environment="HTTP_PROXY=http://10.10.0.12:3128"
+Environment="HTTPS_PROXY=http://10.10.0.12:3128"
+Environment="NO_PROXY=localhost,10.28.*.*,10.29.*.*,192.128.11.105"
+```
 The proxy configuration file is located at ```/etc/docker/daemon.json```:
 ```json
 {
