@@ -5,6 +5,16 @@ Set the Node Configuration
 export KUBECONFIG=PATH_TO_CONFIG_FILE/config
 ```
 ## Commands
+* ### Diagnostics
+  #### Describe resource in json format
+  ```bash
+  kubectl get pvc MY_PVC -n NAMESPACE -o json
+  ```
+  ### Get storage class name of <b>pvc</b> with <b>jsonpath</b>
+  ```bash
+  kubectl get pvc MY_PVC -n NAMESPACE -o jsonpath='{.spec.storageClassName}' ; echo
+  ```
+
 
 * ### Run test pod for various validations
   ```bash
