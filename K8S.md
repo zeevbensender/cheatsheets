@@ -37,3 +37,10 @@ export KUBECONFIG=PATH_TO_CONFIG_FILE/config
 ```bash
 kubectl get svc -A | awk ' { print $5 }' | grep -v none
 ```
+
+## Tricks
+### Find an entity managing another k8s entity
+```bash
+kubectl get <resource-type> <resource-name> -n <namespace> -o yaml | less
+```
+Find <b>ownerReferences</b> in the output
