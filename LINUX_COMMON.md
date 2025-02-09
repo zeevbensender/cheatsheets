@@ -101,11 +101,17 @@ df -T
 uname -r
 ```
 
-### Get Architecture
+### Get Architecture 
 
 ```bash
 uname -m
 ```
+### Get Linux Distribution
+```bash
+uname -a
+```
+
+
 ### Get CPU info
 ```bash
 lscpu
