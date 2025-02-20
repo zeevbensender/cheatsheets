@@ -154,8 +154,7 @@ X11Forwarding yes
 X11DisplayOffset 10
 X11UseLocalhost yes
 ```
-####
-To reset existing XAuthority config
+#### To reset existing XAuthority config
 ```bash
 # Clean Up X11 Authorization
 xauth remove $DISPLAY
