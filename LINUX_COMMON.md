@@ -154,6 +154,37 @@ X11Forwarding yes
 X11DisplayOffset 10
 X11UseLocalhost yes
 ```
+####
+To reset existing XAuthority config
+```bash
+# Clean Up X11 Authorization
+xauth remove $DISPLAY
+xauth remove localhost:10.0
+xauth remove :10
+
+# Reset the Xauthority file
+rm -f ~/.Xauthority
+touch ~/.Xauthority
+chmod 600 ~/.Xauthority
+
+# Verify that xauth list shows nothing
+xauth list
+
+# Restart SSH to clear any old sessions
+sudo systemctl restart sshd
+
+# Exit and reconnect
+exit
+ssh -X zeevb@your_remote_host
+
+Verify the DISPLAY variable:
+# echo $DISPLAY
+# Expected output: localhost:10.0
+
+# Verify that current magic cookie is printed
+xauth list
+#Expected output: YOUR_HOST_NAME/unix:10  MIT-MAGIC-COOKIE-1  COOKIE_VALUE
+```
 
 ### Alternatives management
 [Baeldung manual](https://www.baeldung.com/linux/update-alternatives-command)
