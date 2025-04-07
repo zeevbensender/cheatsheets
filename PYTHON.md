@@ -3,17 +3,17 @@
 ## Collections
 ### Generate a dictionary from two lists of equal length using zip() and dictionary comprehension
 
+
+#### ✅ Using zip() with dict()
 ```python
-# ✅ Using zip() with dict()
 keys = ["a", "b", "c"]
 values = [1, 2, 3]
 
 result_dict = dict(zip(keys, values))
 print(result_dict)  # Output: {'a': 1, 'b': 2, 'c': 3}
-
-# ✅ Using Dictionary Comprehension
-python
-Copy
+```
+#### ✅ Using Dictionary Comprehension
+```python
 result_dict = {key: value for key, value in zip(keys, values)}
 print(result_dict)  # Output: {'a': 1, 'b': 2, 'c': 3}
 ```
