@@ -61,7 +61,7 @@ print(filtered_dict)  # Output: {'a': <Item object>, 'c': <Item object>}
 
 
 
-### Alternative: Using filter()
+#### ✅ Alternative: Using filter()
 ```python
 filtered_dict = dict(filter(lambda item: item[1].visible, original_dict.items()))
 ```
