@@ -31,9 +31,9 @@ names = [item["name"] for item in data]
 print(names)  # Output: ['Alice', 'Bob', 'Charlie']
 ```
 
-###Create a new dictionary from another dictionary by filtering entries whose values meet a condition using dictionary comprehension.
+### Create a new dictionary from another dictionary by filtering entries whose values meet a condition using dictionary comprehension.
 
-#### ✅ Solution: Dictionary Comprehension
+#### ✅ Dictionary Comprehension
 
 ```python
 filtered_dict = {key: value for key, value in original_dict.items() if value.visible}
@@ -58,3 +58,11 @@ filtered_dict = {key: value for key, value in original_dict.items() if value.vis
 print(filtered_dict)  # Output: {'a': <Item object>, 'c': <Item object>}
 ```
 ✅ Only entries where value.visible == True remain in filtered_dict.
+
+
+
+### Alternative: Using filter()
+```python
+filtered_dict = dict(filter(lambda item: item[1].visible, original_dict.items()))
+```
+✅ More functional-style but less readable than dictionary comprehension.
