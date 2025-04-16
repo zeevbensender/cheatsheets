@@ -1,5 +1,12 @@
 # Python
 
+## File System
+### ✅ Create a directory if it doesn't exist
+```python
+from pathlib import Path
+Path("/my/directory").mkdir(parents=True, exist_ok=True)
+```
+
 ## Collections
 ### Generate a dictionary from two lists of equal length using zip() and dictionary comprehension
 
