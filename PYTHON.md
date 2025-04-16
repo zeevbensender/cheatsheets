@@ -7,6 +7,12 @@ from pathlib import Path
 Path("/my/directory").mkdir(parents=True, exist_ok=True)
 ```
 
+### ✅ Delete a directory if it exists
+```python
+import shutil
+shutil.rmtree('/path/to/your/dir/')
+```
+
 ## Collections
 ### Generate a dictionary from two lists of equal length using zip() and dictionary comprehension
 
