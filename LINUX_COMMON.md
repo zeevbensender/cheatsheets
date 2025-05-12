@@ -204,6 +204,43 @@ update-alternatives --display jetbrains
 sudo update-alternatives --remove jetbrains /usr/bin/jetbrains
 ```
 
+## User Management
+
+### Add User
+```bash
+adduser zeevb
+# Below is the expected output:
+Adding user `zeevb' ...
+Adding new group `zeevb' (1001) ...
+Adding new user `zeevb' (1001) with group `zeevb' ...
+Creating home directory `/home/zeevb' ...
+Copying files from `/etc/skel' ...
+New password:
+Retype new password:
+passwd: password updated successfully
+Changing the user information for zeevb
+Enter the new value, or press ENTER for the default
+        Full Name []: Lupo
+        Room Number []:
+        Work Phone []:
+        Home Phone []:
+        Other []:
+```
+### Grant the user sudo privileges
+```bash
+usermod -aG sudo zeevb
+# verify the user was added to the sudo group
+groups zeevb
+# expected output -> zeevb : zeevb sudo
+```
+### Avoid identification requirement upon running sudo commands
+```
+vi /etc/sudoers
+# Modify user privilege specification. Add the line for zeevb after the root:
+# root    ALL=(ALL:ALL) ALL
+# zeevb   ALL=(ALL:ALL) ALL
+```
+
 ## Bash Tricks
 ### awk
 #### Print local dir in ```awk```
