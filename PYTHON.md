@@ -79,3 +79,15 @@ print(filtered_dict)  # Output: {'a': <Item object>, 'c': <Item object>}
 filtered_dict = dict(filter(lambda item: item[1].visible, original_dict.items()))
 ```
 ✅ More functional-style but less readable than dictionary comprehension.
+
+### Pretty print a dictionary
+```python
+import json
+
+print(json.dumps(
+    {'4': 5, '6': 7},
+    sort_keys=True,
+    indent=4,
+    separators=(',', ': ')
+))
+```
