@@ -9,7 +9,7 @@ from pymilvus import connections, Collection, exceptions
 def load_collection(host_name, collection_name, port="19530", alias="default"):
     try:
         print(f"Connecting to Milvus at {host_name}:{port}...")
-        connections.connect(alias=alias, name=host), port=port)
+        connections.connect(alias=alias, host=host_name, port=port)
 
         print(f"Attempting to load collection '{collection_name}'...")
         collection = Collection(collection_name, using=alias)
@@ -32,8 +32,5 @@ if __name__ == "__main__":
 
     host_name = sys.argv[1]
     collection_name = sys.argv[2]
-    if not (host_name or collection_name):
-        print("host name and collection name must be provided")
-        exit(0)
     load_collection(host_name, collection_name)
 ```
