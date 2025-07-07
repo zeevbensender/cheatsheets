@@ -15,6 +15,16 @@ export KUBECONFIG=PATH_TO_CONFIG_FILE/config
   kubectl get pvc MY_PVC -n NAMESPACE -o jsonpath='{.spec.storageClassName}' ; echo
   ```
 
+  ### Run ```top``` for nodes
+  ```bash
+  kubectl top nodes
+  ```
+
+  ### Run ```top``` for pods
+  ```bash
+  kubectl top pod -n <namespace>
+  ```
+
 
 * ### Run test pod for various validations
   ```bash
