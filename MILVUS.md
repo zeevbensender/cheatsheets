@@ -1,4 +1,41 @@
 # MILVUS
+
+## Troubleshooting
+
+### Exploring minio buckets
+
+Deploy the temporary pod with the ```mc``` utility installed in the container:
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mc-client
+  namespace: <namespace>
+spec:
+  containers:
+    - name: mc
+      image: minio/mc
+      command: [ "sleep", "3600" ]  # Keep the pod running
+      imagePullPolicy: IfNotPresent
+  restartPolicy: Never
+```
+
+Apply the yaml and exec into it:
+```bash
+kubectl apply -f mc-pod.yaml
+kubectl exec -it mc-client -n <namespace> -- sh
+```
+
+Configure the mc:
+```bash
+mc alias set local http://<minio url>:9000 <access_key> <secret_key>
+```
+
+Explore the buckets:
+```bash
+mc ls local
+```
+
 ## Python Scripts
 
 ### Load Collection
