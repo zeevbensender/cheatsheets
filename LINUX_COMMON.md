@@ -262,6 +262,10 @@ Use the ```dd``` command to copy 4 bytes from the beginning of one file to anoth
 ```bash
 dd if=/home/user/work/base.fvecs of=/home/user/work/base1.fvecs skip=0 bs=4 count=1
 ```
+Use ```dd``` to generate 1GB of random data and write it to the file:
+```
+dd if=/dev/urandom of=/home/user/work/test.bin bs=1M count=1024
+```
 
 Use the ```dd``` command to copy 512 bytes from one file and append them to another
 ```bash
