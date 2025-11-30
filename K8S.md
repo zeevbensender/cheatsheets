@@ -6,6 +6,21 @@ export KUBECONFIG=PATH_TO_CONFIG_FILE/config
 ```
 ## Commands
 * ### Diagnostics
+  #### Show all app.kubernetes.io/component labels in a namespace
+  ```bash
+  kubectl get pods -n <namespace> -o jsonpath='{range .items[*]}{.metadata.labels.app\.kubernetes\.io/component}{"\n"}{end}'
+  ```
+  #### Show app.kubernetes.io/component labels from all pods in a namespace
+  ```bash
+  kubectl get pods -n <namespace> -o jsonpath='{range .items[*]}{.metadata.labels.app\.kubernetes\.io/component}{"\n"}{end}'
+  ```
+  #### Show app.kubernetes.io/component labels with pod names from all pods in a namespace
+  ```bash
+  kubectl get pods -n <namespace> \
+  -o jsonpath='{range .items[*]}{.metadata.name}{" => "}{.metadata.labels.app\.kubernetes\.io/component}{"\n"}{end}'
+  ```
+
+
   #### Describe resource in json format
   ```bash
   kubectl get pvc MY_PVC -n NAMESPACE -o json
