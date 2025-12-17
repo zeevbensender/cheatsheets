@@ -43,6 +43,11 @@ sha256sum <file name>
 ```bash
 lsblk
 ```
+Include file system info on the devices
+```bash
+lsblk -f
+```
+
 ### List SCSI block devices
 ```bash
 lsblk -S
