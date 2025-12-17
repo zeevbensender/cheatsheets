@@ -1,5 +1,11 @@
 # Linux Cheat Sheet
 
+## Nvidia
+### Check if the host has Nvidia GPU installed
+```bash
+lspci | grep -i nvidia || echo "No NVIDIA GPU detected"
+```
+
 ## Output Redirect
 ### Redirect both stdout and error to a file
 ```bash
