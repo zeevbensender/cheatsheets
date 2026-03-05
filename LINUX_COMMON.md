@@ -39,6 +39,31 @@ sha256sum <file name>
 ```
 
 ## Storage
+### Investigate the 'Out of space' error
+#### 1. Identify what directories consume space
+Assume, the ```/``` is out of space
+If nested mounts are in use, use --one-file-system so the scan does not descend into other disks.
+```bash
+sudo du -xhd1 /
+```
+* ```-x``` → stay inside the same filesystem (/)
+* ```-h``` → human readable
+* ```-d1``` → only first level
+#### 2. Verify mount points
+If a disk should be mounted but is not, files may have accumulated in the underlying directory.
+```bash
+findmnt | grep "/var/lib/docker"
+```
+```/var/lib/docker``` → Expected mount point
+The expected output is:
+```bash
+findmnt | grep "/var/lib/docker"
+├─/var/lib/docker                                                                                    /dev/sdb2              ext4        rw,relatime
+│ ├─/var/lib/docker/overlay2/ba97116d3c3d4c8105ae8b056031a1c940a8df93cc0d4a82f33b5b6cc69df7f4/merged overlay                overlay     rw,relatime,lowerdir=/var/lib/dock
+...
+```
+
+
 ### List block devices
 ```bash
 lsblk
