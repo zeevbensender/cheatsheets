@@ -278,6 +278,11 @@ vi /etc/sudoers
 ```
 
 ## Bash Tricks
+## Misc
+#### Delete the last line in a file
+```bash
+sed -i '$d' filename.txt
+```
 ### awk
 #### Print local dir in ```awk```
 ```bash
