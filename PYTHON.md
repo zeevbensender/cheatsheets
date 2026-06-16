@@ -1,8 +1,12 @@
 # Python
 ## Pip Related Stuff
-### Check module availability
+### ✅ Check module availability
 ```bash
 python -c "import jsonpath_ng; print(jsonpath_ng.__version__)"
+```
+### ✅ Add module with Poetry
+```bash
+poetry add jsonpath_ng
 ```
 ## File System
 ### ✅ Create a directory if it doesn't exist
