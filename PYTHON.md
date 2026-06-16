@@ -1,5 +1,9 @@
 # Python
-
+## Pip Related Stuff
+### Check module availability
+```bash
+python -c "import jsonpath_ng; print(jsonpath_ng.__version__)"
+```
 ## File System
 ### ✅ Create a directory if it doesn't exist
 ```python
