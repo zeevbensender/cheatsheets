@@ -279,6 +279,10 @@ vi /etc/sudoers
 
 ## Bash Tricks
 ## Misc
+#### Replace pattern in found files
+```bash
+find /etc/myapp/ -type f -exec sed -i 's/old_string/new_string/g' {} \;
+```
 #### Delete the last line in a file
 ```bash
 sed -i '$d' filename.txt
