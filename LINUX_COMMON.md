@@ -229,7 +229,7 @@ update-alternatives --get-selections
 ```
 #### Create alternative for ```jetbrains```
 ```bash
-sudo update-alternatives --install /usr/bin/jetbrains-toolbox-2.4.2.32922/jetbrains-toolbox jetbrains /usr/bin/jetbrains 100
+sudo update-alternatives --install /usr/bin/idea idea /opt/idea-IU-262.8665.337/bin/idea 100
 ```
 #### Display alternative for ```jetbrains```
 ```
